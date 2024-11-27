@@ -342,7 +342,21 @@ def launch_setup(context, *args, **kwargs):
         "tcp_pose_broadcaster",
         "ur_configuration_controller",
     ]
+<<<<<<< HEAD
     controllers_inactive = ["forward_position_controller"]
+=======
+    controllers_inactive = [
+        "scaled_joint_trajectory_controller",
+        "joint_trajectory_controller",
+        "forward_velocity_controller",
+        "forward_position_controller",
+        "force_mode_controller",
+        "passthrough_trajectory_controller",
+    ]
+    if activate_joint_controller.perform(context) == "true":
+        controllers_active.append(initial_joint_controller.perform(context))
+        controllers_inactive.remove(initial_joint_controller.perform(context))
+>>>>>>> e949995 (Add force mode controller (#1049))
 
     controller_spawners = [controller_spawner(controllers_active)] + [
         controller_spawner(controllers_inactive, active=False)

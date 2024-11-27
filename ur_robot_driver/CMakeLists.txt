@@ -33,6 +33,7 @@ find_package(std_srvs REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(ur_client_library REQUIRED)
 find_package(ur_dashboard_msgs REQUIRED)
+find_package(ur_msgs REQUIRED)
 
 include_directories(include)
 
@@ -49,6 +50,7 @@ set(THIS_PACKAGE_INCLUDE_DEPENDS
   tf2_geometry_msgs
   ur_client_library
   ur_dashboard_msgs
+  ur_msgs
 )
 
 add_library(ur_robot_driver_plugin
@@ -156,6 +158,14 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/tool_communication.py
+<<<<<<< HEAD
+=======
+  scripts/wait_for_robot_description
+  scripts/example_move.py
+  scripts/start_ursim.sh
+  examples/examples.py
+  examples/force_mode.py
+>>>>>>> e949995 (Add force mode controller (#1049))
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -192,6 +202,17 @@ if(BUILD_TESTING)
       TIMEOUT
         800
     )
+<<<<<<< HEAD
+=======
+    add_launch_test(test/integration_test_controller_switch.py
+      TIMEOUT
+        800
+    )
+    add_launch_test(test/integration_test_force_mode.py
+      TIMEOUT
+        800
+    )
+>>>>>>> e949995 (Add force mode controller (#1049))
     add_launch_test(test/urscript_interface.py
       TIMEOUT
         500

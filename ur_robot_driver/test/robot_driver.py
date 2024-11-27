@@ -51,10 +51,12 @@ from test_common import (  # noqa: E402
     IoStatusInterface,
     ConfigurationInterface,
     generate_driver_test_description,
+    ROBOT_JOINTS,
 )
 
 TIMEOUT_EXECUTE_TRAJECTORY = 30
 
+<<<<<<< HEAD
 ROBOT_JOINTS = [
     "elbow_joint",
     "shoulder_lift_joint",
@@ -64,6 +66,8 @@ ROBOT_JOINTS = [
     "wrist_3_joint",
 ]
 
+=======
+>>>>>>> e949995 (Add force mode controller (#1049))
 
 @pytest.mark.launch_test
 @launch_testing.parametrize(
